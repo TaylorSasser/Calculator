@@ -1,0 +1,116 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           Calculator
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/Calculator#readme>
+homepage:       https://github.com/jsasser4/Calculator#readme
+bug-reports:    https://github.com/jsasser4/Calculator/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2022 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/jsasser4/Calculator
+
+library
+  exposed-modules:
+      Calculator.App Calculator.Types Calculator.Parser.Lex Calculator.Parser.Parse Calculator.Parser.Parser Calculator.Solver.Solver Calculator.UserInterface.MainComponent
+  other-modules:
+      Paths_Calculator
+  hs-source-dirs:
+      src
+  default-extensions:
+      OverloadedStrings
+      TemplateHaskell
+      DeriveGeneric
+      GeneralisedNewtypeDeriving
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-unused-top-binds -Wno-incomplete-patterns
+  build-depends:
+      base >=4.7 && <5
+    , brick ==1.4.*
+    , microlens >=0.4.11 && <0.5
+    , microlens-mtl
+    , microlens-platform >=0.4.1 && <0.5
+    , microlens-th >=0.4.3.10 && <0.5
+    , mtl
+    , strict >=0.3.2 && <0.5
+    , text >=1.2.3 && <1.3
+    , transformers >=0.5.6.2 && <0.6
+    , vector >=0.12.0 && <0.13
+    , vty >=5.35.1 && <5.38
+    , word-wrap >=0.4.1 && <0.6
+  default-language: Haskell2010
+
+executable Calculator-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Calculator
+  hs-source-dirs:
+      app
+  default-extensions:
+      OverloadedStrings
+      TemplateHaskell
+      DeriveGeneric
+      GeneralisedNewtypeDeriving
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-unused-top-binds -Wno-incomplete-patterns -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Calculator
+    , base >=4.7 && <5
+    , brick ==1.4.*
+    , microlens >=0.4.11 && <0.5
+    , microlens-mtl
+    , microlens-platform >=0.4.1 && <0.5
+    , microlens-th >=0.4.3.10 && <0.5
+    , mtl
+    , strict >=0.3.2 && <0.5
+    , text >=1.2.3 && <1.3
+    , transformers >=0.5.6.2 && <0.6
+    , vector >=0.12.0 && <0.13
+    , vty >=5.35.1 && <5.38
+    , word-wrap >=0.4.1 && <0.6
+  default-language: Haskell2010
+
+test-suite Calculator-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      LexerUnitTest
+      ParserUnitTest
+      SolverUnitTest
+      Paths_Calculator
+  hs-source-dirs:
+      test
+  default-extensions:
+      OverloadedStrings
+      TemplateHaskell
+      DeriveGeneric
+      GeneralisedNewtypeDeriving
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-unused-top-binds -Wno-incomplete-patterns -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Calculator
+    , HUnit
+    , base >=4.7 && <5
+    , brick ==1.4.*
+    , microlens >=0.4.11 && <0.5
+    , microlens-mtl
+    , microlens-platform >=0.4.1 && <0.5
+    , microlens-th >=0.4.3.10 && <0.5
+    , mtl
+    , strict >=0.3.2 && <0.5
+    , text >=1.2.3 && <1.3
+    , transformers >=0.5.6.2 && <0.6
+    , vector >=0.12.0 && <0.13
+    , vty >=5.35.1 && <5.38
+    , word-wrap >=0.4.1 && <0.6
+  default-language: Haskell2010

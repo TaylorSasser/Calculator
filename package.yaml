@@ -1,0 +1,84 @@
+name:                Calculator
+version:             0.1.0.0
+github:              "jsasser4/Calculator"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2022 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/Calculator#readme>
+
+dependencies:
+- base                 >= 4.7 && < 5
+- brick                >= 1.4 && < 1.5  
+- microlens            >= 0.4.11 && < 0.5
+- microlens-platform   >= 0.4.1 && < 0.5
+- microlens-th         >= 0.4.3.10 && < 0.5
+- microlens-mtl
+- strict               >= 0.3.2 && < 0.5
+- text                 >= 1.2.3 && < 1.3
+- vector               >= 0.12.0 && < 0.13
+- vty                  >= 5.35.1 && < 5.38
+- word-wrap            >= 0.4.1 && < 0.6
+- transformers         >= 0.5.6.2 && < 0.6
+- mtl
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+- -Wno-unused-top-binds
+- -Wno-incomplete-patterns
+
+default-extensions: 
+  - OverloadedStrings
+  - TemplateHaskell
+  - DeriveGeneric
+  - GeneralisedNewtypeDeriving
+
+library:
+  source-dirs: src
+  exposed-modules:
+    Calculator.App
+    Calculator.Types
+    Calculator.Parser.Lex
+    Calculator.Parser.Parse
+    Calculator.Parser.Parser
+    Calculator.Solver.Solver
+    Calculator.UserInterface.MainComponent
+  autogen-modules:     Paths_Calculator
+  other-modules:       Paths_Calculator
+
+
+executables:
+  Calculator-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Calculator
+
+tests:
+  Calculator-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - HUnit
+    - Calculator
